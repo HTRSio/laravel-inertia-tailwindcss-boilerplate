@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-const tailwindcss = require('tailwindcss')
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,19 +13,19 @@ const tailwindcss = require('tailwindcss')
  */
 
 mix.browserSync({
-    proxy: 'localhost',
-    open: false,
+  proxy: 'localhost',
+  open: false,
 });
 
 mix.js('resources/js/app.js', 'public/js')
-    .extract()
-    .vue(3)
-    .sass('resources/sass/app.scss', 'public/css')
-    .options({
-        processCssUrls: false,
-        postCss: [tailwindcss('./tailwind.config.js')],
-    });
+  .extract()
+  .vue(3)
+  .sass('resources/sass/app.scss', 'public/css')
+  .options({
+    processCssUrls: false,
+    postCss: [tailwindcss('./tailwind.config.js')],
+  });
 
 if (mix.inProduction()) {
-    mix.version()
+  mix.version();
 }
